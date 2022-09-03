@@ -27,7 +27,7 @@ const createManga = (postObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/manga.json`, postObj)
     .then((response) => {
-      const payload = { firebase: response.data.name };
+      const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/manga/${response.data.name}.json`, payload).then(resolve);
     })
     .catch(reject);

@@ -24,13 +24,18 @@ export default function NavBar() {
               </Link>
             </li>
             <li>
-              <Link passHref href="/manga">
+              <Link passHref href="/mangas">
                 <a className="nav-link">Manga</a>
               </Link>
             </li>
             <li>
               <Link passHref href="/lists">
                 <a className="nav-link">Lists</a>
+              </Link>
+            </li>
+            <li>
+              <Link passHref href="/manga/new">
+                <a className="nav-link">Add Manga</a>
               </Link>
             </li>
             <button type="button" className="btn btn-danger" onClick={signOut}>
