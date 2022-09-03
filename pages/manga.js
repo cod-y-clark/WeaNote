@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getManga } from '../api/mangaData';
+import MangaCard from '../components/MangaCard';
 
-export default function manga() {
+export default function MangaPage() {
+  const [manga, setManga] = useState([]);
+  const getAllManga = () => {
+    getManga().then(setManga);
+  };
+  useEffect(() => {
+    getAllManga();
+  }, []);
+
   return (
-    <div>manga</div>
+    <>
+      {manga.map((volume) => (
+        <MangaCard key={volume.firebaseKey} mangaObj={volume} />
+      ))}
+    </>
   );
 }
