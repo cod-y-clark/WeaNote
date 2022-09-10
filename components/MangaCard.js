@@ -4,16 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 
-export default function MangaCard({
-  image, title, author, firebaseKey,
-}) {
+export default function MangaCard({ mangaObj }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={image} alt={title} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={mangaObj.image} alt={mangaObj.title} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>by {author}</Card.Text>
-        <Link href={`Items/${firebaseKey}`} passHref>
+        <Card.Title>{mangaObj.title}</Card.Title>
+        <Card.Text>by {mangaObj.author}</Card.Text>
+        <Link href={`Items/${mangaObj.firebaseKey}`} passHref>
           <Button variant="primary">View</Button>
         </Link>
       </Card.Body>
@@ -22,12 +20,10 @@ export default function MangaCard({
 }
 
 MangaCard.propTypes = {
-  firebaseKey: PropTypes.string.isRequired,
-  image: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-};
-
-MangaCard.defaultProps = {
-  image: 'https://static.thenounproject.com/png/340719-200.png',
+  mangaObj: PropTypes.shape({
+    image: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    firebaseKey: PropTypes.string,
+  }).isRequired,
 };

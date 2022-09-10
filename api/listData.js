@@ -3,22 +3,22 @@ import { clientCredentials } from '../utils/client';
 
 const dbUrl = clientCredentials.databaseURL;
 
-const getLists = () => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/lists.json`)
+const getLists = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/lists.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
-      if (response?.data) {
+      if (response.data) {
         resolve(Object.values(response.data));
       } else {
         resolve([]);
       }
     })
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 const getSingleList = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/lists/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 const createList = (postObj) => new Promise((resolve, reject) => {
@@ -39,7 +39,7 @@ const updateList = (postObj) => new Promise((resolve, reject) => {
 const deleteList = (firebaseKey) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/lists/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 export {

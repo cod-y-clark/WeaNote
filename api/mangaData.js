@@ -7,27 +7,27 @@ const getManga = () => new Promise((resolve, reject) => {
   axios
     .get(`${dbUrl}/manga.json`)
     .then((response) => {
-      if (response?.data) {
+      if (response.data) {
         resolve(Object.values(response.data));
       } else {
         resolve([]);
       }
     })
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 const getSingleManga = (firebaseKey) => new Promise((resolve, reject) => {
   axios
     .get(`${dbUrl}/manga/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
-    .catch(reject);
+    .catch((error) => reject(error));
 });
 
 const createManga = (postObj) => new Promise((resolve, reject) => {
   axios
     .post(`${dbUrl}/manga.json`, postObj)
     .then((response) => {
-      const payload = { firebase: response.data.name };
+      const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/manga/${response.data.name}.json`, payload).then(resolve);
     })
     .catch(reject);
@@ -43,8 +43,8 @@ const updateManga = (postObj) => new Promise((resolve, reject) => {
 const deleteManga = (firebaseKey) => new Promise((resolve, reject) => {
   axios
     .delete(`${dbUrl}/manga/${firebaseKey}.json`)
-    .then((response) => resolve(response.data))
-    .catch(reject);
+    .then(() => resolve('deleted')
+      .catch((error) => reject(error)));
 });
 
 export {
