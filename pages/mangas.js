@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getManga } from '../api/mangaData';
-import MangaCard from '../components/MangaCard';
+import MangaCard from '../components/cards/MangaCard';
 
 export default function Manga() {
   const [manga, setManga] = useState([]);

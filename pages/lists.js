@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { getLists } from '../api/listData';
-import ListCard from '../components/ListCard';
+import ListCard from '../components/cards/ListCard';
 import { useAuth } from '../utils/context/authContext';
 
 export default function Lists() {
