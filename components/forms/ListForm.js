@@ -62,8 +62,8 @@ export default function ListForm({ obj }) {
 ListForm.propTypes = {
   obj: PropTypes.shape({
     firebaseKey: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    description: PropTypes.string,
   }),
 };
 
