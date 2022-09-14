@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { getUserListManga } from '../api/userListMangaData';
-import MangaCard from '../components/cards/MangaCard';
 import { useAuth } from '../utils/context/authContext';
+import UserListMangaCard from '../components/cards/UserListMangaCard';
 
-export default function Lists() {
+export default function UserListManga() {
   const [manga, setManga] = useState([]);
   const { user } = useAuth();
 
@@ -18,8 +18,8 @@ export default function Lists() {
 
   return (
     <>
-      {manga.map((userListManga) => (
-        <MangaCard key={userListManga.firebaseKey} mangaObj={userListManga} />
+      {manga.map((volume) => (
+        <UserListMangaCard key={volume.firebaseKey} mangaObj={volume} />
       ))}
     </>
   );
