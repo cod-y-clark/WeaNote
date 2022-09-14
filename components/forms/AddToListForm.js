@@ -40,7 +40,7 @@ export default function AddToListForm({ obj }) {
     if (obj.firebaseKey) {
       updateUserListManga(formInput).then(() => router.push(`/userListMangas/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, uid: user.uid, firebaseKey: manga.firebaseKey };
+      const payload = { ...formInput, uid: user.uid, mangaId: manga.firebaseKey };
       createUserListManga(payload).then(() => {
         router.push('/');
       });
