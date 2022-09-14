@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import React from 'react';
 import PropTypes from 'prop-types';
+import AddToListForm from '../forms/AddToListForm';
 
 export default function MangaDetails({ mangaObj }) {
   return (
@@ -11,6 +13,9 @@ export default function MangaDetails({ mangaObj }) {
         <h5>
           {mangaObj.title} by {mangaObj.author}
         </h5>
+      </div>
+      <div>
+        <AddToListForm />
       </div>
     </div>
   );
