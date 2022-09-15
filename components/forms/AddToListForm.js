@@ -40,7 +40,7 @@ export default function AddToListForm({ obj }) {
     if (obj.firebaseKey) {
       updateUserListManga(formInput).then(() => router.push(`/userListMangas/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, uid: user.uid, firebaseKey: manga.firebaseKey };
+      const payload = { ...formInput, uid: user.uid, mangaId: manga.firebaseKey };
       createUserListManga(payload).then(() => {
         router.push('/');
       });
@@ -50,7 +50,7 @@ export default function AddToListForm({ obj }) {
   return (
     <Form onSubmit={handleSubmit}>
       <FloatingLabel controlId="floatingSelect" label="">
-        <Form.Select aria-label="List" name="list_id" defaultValue="0" onChange={handleChange} className="mb-3" required>
+        <Form.Select aria-label="List" name="listId" defaultValue="0" onChange={handleChange} className="mb-3" required>
           <option value="">Select a List</option>
           {lists.map((list) => (
             <option key={list.firebaseKey} value={list.firebaseKey} defaultValue={obj.listId === list.firebaseKey}>
