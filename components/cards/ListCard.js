@@ -16,7 +16,7 @@ export default function ListCard({ listObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
         <Card.Title>
-          <a href={`list/${listObj.firebaseKey}`} passHref>{listObj.name}</a>
+          <a href={`list/${listObj.firebaseKey}`}>{listObj.name}</a>
         </Card.Title>
         <p className="card-text bold">{listObj.description}</p>
 
