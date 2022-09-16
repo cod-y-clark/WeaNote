@@ -4,7 +4,7 @@ import { getSingleUserListManga } from './userListMangaData';
 const viewUserListManga = (userListMangaFirebaseKey) => new Promise((resolve, reject) => {
   getSingleUserListManga(userListMangaFirebaseKey)
     .then((userListMangaObject) => {
-      getSingleManga(userListMangaObject.mangaId)
+      getSingleManga(userListMangaObject?.mangaId)
         .then((mangaObject) => {
           resolve({ mangaObject, ...userListMangaObject });
         });
