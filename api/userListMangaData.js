@@ -11,8 +11,7 @@ const getUserListManga = (uid) => new Promise((resolve, reject) => {
       } else {
         resolve([]);
       }
-    })
-    .catch((error) => reject(error));
+    }).catch((error) => reject(error));
 });
 
 const getSingleUserListManga = (firebaseKey) => new Promise((resolve, reject) => {
