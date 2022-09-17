@@ -1,20 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getListManga } from '../../api/listData';
-import MangaCard from '../../components/cards/MangaCard';
+import UserListMangaCard from '../../components/cards/UserListMangaCard';
 
 export default function ViewListDetails() {
   const [listDetails, setListDetails] = useState([]);
   const router = useRouter();
   const { firebaseKey } = router.query;
 
-  useEffect(() => {
+  const getAllUserListManga = () => {
     getListManga(firebaseKey).then(setListDetails);
+  };
+
+  useEffect(() => {
+    getAllUserListManga();
   }, [firebaseKey]);
+
   return (
     <div>
       {listDetails.map((volume) => (
-        <MangaCard key={volume.firebaseKey} mangaObj={volume} />
+        <UserListMangaCard key={volume.firebaseKey} mangaObj={volume} onUpdate={getAllUserListManga} />
       ))}
     </div>
   );
