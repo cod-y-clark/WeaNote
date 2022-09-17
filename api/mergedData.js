@@ -1,5 +1,6 @@
+import { deleteList, getListManga } from './listData';
 import { getManga } from './mangaData';
-import { getUserListManga } from './userListMangaData';
+import { deleteUserListManga, getUserListManga } from './userListMangaData';
 
 const viewUserListManga = (uid) => new Promise((resolve, reject) => {
   getUserListManga(uid)
@@ -11,4 +12,14 @@ const viewUserListManga = (uid) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export default viewUserListManga;
+const deleteListManga = (listId) => new Promise((resolve, reject) => {
+  getListManga(listId).then((mangaArray) => {
+    const deleteMangaPromises = mangaArray.map((manga) => deleteUserListManga(manga.firebaseKey));
+
+    Promise.all(deleteMangaPromises).then(() => {
+      deleteList(listId).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
+export { viewUserListManga, deleteListManga };

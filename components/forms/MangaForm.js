@@ -34,11 +34,11 @@ export default function MangaForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      updateManga(formInput).then(() => router.push('/'));
+      updateManga(formInput).then(() => router.push('/mangas'));
     } else {
       const payload = { ...formInput };
       createManga(payload).then(() => {
-        router.push('/');
+        router.push('/mangas');
       });
     }
   };
