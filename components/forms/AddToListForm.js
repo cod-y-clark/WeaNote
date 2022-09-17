@@ -42,7 +42,7 @@ export default function AddToListForm({ obj }) {
     } else {
       const payload = { ...formInput, uid: user.uid, ...manga };
       createUserListManga(payload).then(() => {
-        router.push('/');
+        router.push('/mangas');
       });
     }
   };
