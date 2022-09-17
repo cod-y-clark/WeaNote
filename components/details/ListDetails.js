@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import getUserListMangaDetails from '../../api/mergedData';
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React from 'react';
 import MangaCard from '../cards/MangaCard';
-import { useAuth } from '../../utils/context/authContext';
 
-export default function ListDetails() {
-  const [userListManga, setUserListManga] = useState([]);
-  const { user } = useAuth();
-
-  const getAllUserListManga = () => {
-    getUserListMangaDetails(user.uid).then(setUserListManga);
-  };
-
-  useEffect(() => {
-    getAllUserListManga();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+export default function ListDetails({ listArr }) {
   return (
     <>
-      {Object.keys(userListManga).map((volume) => (
+      {listArr.map((volume) => (
         <MangaCard key={volume.firebaseKey} mangaObj={volume} />
       ))}
     </>
