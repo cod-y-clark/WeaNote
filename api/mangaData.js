@@ -47,10 +47,17 @@ const deleteManga = (firebaseKey) => new Promise((resolve, reject) => {
       .catch((error) => reject(error)));
 });
 
+const getUserManga = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/userListMangas.json?orderBy="mangaId"&equalTo="${firebaseKey}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 export {
   getManga,
   getSingleManga,
   createManga,
   updateManga,
   deleteManga,
+  getUserManga,
 };

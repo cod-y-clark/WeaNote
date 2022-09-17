@@ -1,10 +1,14 @@
-// import { getSingleManga } from './mangaData';
+import { getManga } from './mangaData';
+import { getUserListManga } from './userListMangaData';
 
-// const viewMangaDetails = (mangaFirebaseKey) => new Promise((resolve, reject) => {
-//   getSingleManga(mangaFirebaseKey)
-//     .then((mangaObject) => resolve({ ...mangaObject }))
-//     .catch(reject);
-// });
+const viewUserListManga = (uid) => new Promise((resolve, reject) => {
+  getUserListManga(uid)
+    .then((userListMangaObject) => {
+      getManga(userListMangaObject.mangaId)
+        .then((mangaObject) => {
+          resolve({ mangaObject, ...userListMangaObject });
+        });
+    }).catch((error) => reject(error));
+});
 
-// // eslint-disable-next-line import/prefer-default-export
-// export { viewMangaDetails };
+export default viewUserListManga;

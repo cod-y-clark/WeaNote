@@ -42,10 +42,17 @@ const deleteList = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getListManga = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/userListMangas.json?orderBy="listId"&equalTo="${firebaseKey}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 export {
   getLists,
   getSingleList,
   createList,
   updateList,
   deleteList,
+  getListManga,
 };
