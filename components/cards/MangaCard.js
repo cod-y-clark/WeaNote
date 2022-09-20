@@ -24,7 +24,6 @@ MangaCard.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
-    reported: PropTypes.bool,
     firebaseKey: PropTypes.string,
   }).isRequired,
 };

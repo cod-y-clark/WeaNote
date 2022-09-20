@@ -1,5 +1,5 @@
 import { deleteList, getListManga } from './listData';
-import { getManga } from './mangaData';
+import { deleteManga, getManga, getSingleManga } from './mangaData';
 import { deleteUserListManga, getUserListManga } from './userListMangaData';
 
 const viewUserListManga = (uid) => new Promise((resolve, reject) => {
@@ -22,4 +22,14 @@ const deleteListManga = (listId) => new Promise((resolve, reject) => {
   }).catch((error) => reject(error));
 });
 
-export { viewUserListManga, deleteListManga };
+const reportManga = (title) => new Promise((resolve, reject) => {
+  getSingleManga(title).then((mangaObject) => {
+    const reportMangaPromises = deleteManga(mangaObject.title);
+
+    Promise.all(reportMangaPromises).then(() => {
+      deleteUserListManga(title).then(resolve);
+    });
+  }).catch((error) => reject(error));
+});
+
+export { viewUserListManga, deleteListManga, reportManga };
