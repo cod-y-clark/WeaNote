@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddToListForm from '../forms/AddToListForm';
+import ReportMangaForm from '../forms/ReportMangaForm';
 
 export default function MangaDetails({ mangaObj }) {
   return (
@@ -16,6 +17,9 @@ export default function MangaDetails({ mangaObj }) {
       </div>
       <div>
         <AddToListForm />
+      </div>
+      <div>
+        <ReportMangaForm />
       </div>
     </div>
   );

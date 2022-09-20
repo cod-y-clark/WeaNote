@@ -11,7 +11,6 @@ const initialState = {
   image: '',
   title: '',
   author: '',
-  reported: false,
 };
 
 export default function MangaForm({ obj }) {
@@ -71,7 +70,6 @@ MangaForm.propTypes = {
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     image: PropTypes.string,
-    reported: PropTypes.bool,
   }),
 };
 

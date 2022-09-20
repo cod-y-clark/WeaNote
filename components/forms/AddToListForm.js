@@ -66,7 +66,6 @@ export default function AddToListForm({ obj }) {
 
 AddToListForm.propTypes = {
   obj: PropTypes.shape({
-    mangaId: PropTypes.string,
     listId: PropTypes.string,
     firebaseKey: PropTypes.string,
   }),
@@ -74,7 +73,6 @@ AddToListForm.propTypes = {
 
 AddToListForm.defaultProps = {
   obj: {
-    mangaId: '',
     listId: '',
   },
 };

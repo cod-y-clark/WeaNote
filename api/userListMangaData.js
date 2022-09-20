@@ -14,6 +14,20 @@ const getUserListManga = (uid) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+// gets manga on a list regardless of uid. used for the report feature
+const getMangaOnLists = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${dbUrl}/userListMangas.json`)
+    .then((response) => {
+      if (response.data) {
+        resolve(Object.values(response.data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch((error) => reject(error));
+});
+
 const getSingleUserListManga = (firebaseKey) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/userListMangas/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
@@ -43,6 +57,7 @@ const deleteUserListManga = (firebaseKey) => new Promise((resolve, reject) => {
 
 export {
   getUserListManga,
+  getMangaOnLists,
   getSingleUserListManga,
   createUserListManga,
   updateUserListManga,
