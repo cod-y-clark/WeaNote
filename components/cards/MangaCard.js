@@ -11,7 +11,7 @@ export default function MangaCard({ mangaObj }) {
       <Card.Body>
         <Card.Title>{mangaObj.title}</Card.Title>
         <Card.Text>by {mangaObj.author}</Card.Text>
-        <Link href={`manga/${mangaObj.firebaseKey}`} passHref>
+        <Link href={`/manga/${mangaObj.firebaseKey}`} passHref>
           <Button variant="primary">View</Button>
         </Link>
       </Card.Body>
