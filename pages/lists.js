@@ -21,7 +21,7 @@ export default function Lists() {
   return (
     <div className="text-center my-4">
       <Link href="/list/new" passHref>
-        <Button>Add A List</Button>
+        <Button className="btn-secondary">Add A List</Button>
       </Link>
 
       <div className="d-flex flex-wrap">

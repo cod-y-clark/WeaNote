@@ -15,13 +15,16 @@ export default function UserListMangaCard({ mangaObj, onUpdate }) {
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={mangaObj.image} alt={mangaObj.title} style={{ height: '400px' }} />
+
       <Card.Body>
         <Card.Title>{mangaObj.title}</Card.Title>
         <Card.Text>by {mangaObj.author}</Card.Text>
-        <Link href={`userListMangas/${mangaObj.firebaseKey}`} passHref>
-          <Button variant="primary">View</Button>
+
+        <Link href={`/userListManga/edit/${mangaObj.firebaseKey}`} passHref>
+          <Button className="btn btn-secondary btn-sm copy-btn">Update List</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisUserListManga} className="m-2">
+
+        <Button className="btn btn-secondary btn-sm copy-btn" onClick={deleteThisUserListManga}>
           Remove from list
         </Button>
       </Card.Body>
