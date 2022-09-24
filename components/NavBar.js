@@ -35,7 +35,7 @@ export default function NavBar() {
             </li>
             <li>
               <Link passHref href="/manga/new">
-                <a className="nav-link" variant="secondary">Add Manga</a>
+                <a className="nav-link">Add Manga</a>
               </Link>
             </li>
             <li>
