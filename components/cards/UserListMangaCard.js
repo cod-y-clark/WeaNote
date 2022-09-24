@@ -21,10 +21,10 @@ export default function UserListMangaCard({ mangaObj, onUpdate }) {
         <Card.Text>by {mangaObj.author}</Card.Text>
 
         <Link href={`/userListManga/edit/${mangaObj.firebaseKey}`} passHref>
-          <Button variant="info">Update List</Button>
+          <Button className="btn btn-secondary btn-sm copy-btn">Update List</Button>
         </Link>
 
-        <Button variant="danger" onClick={deleteThisUserListManga} className="m-2">
+        <Button className="btn btn-secondary btn-sm copy-btn" onClick={deleteThisUserListManga}>
           Remove from list
         </Button>
       </Card.Body>

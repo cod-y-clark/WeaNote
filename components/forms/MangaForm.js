@@ -47,19 +47,19 @@ export default function MangaForm({ obj }) {
       <title>Manga Form</title>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Add'} Manga</h2>
 
-      <FloatingLabel controlId="floatingInput1" label="Title" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Title" className="w-50">
         <Form.Control type="text" placeholder="Title" name="title" value={formInput.title} onChange={handleChange} required />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput3" label="Author" className="mb-3">
+      <FloatingLabel controlId="floatingInput3" label="Author" className="w-50">
         <Form.Control type="text" placeholder="Author" name="author" value={formInput.author} onChange={handleChange} required />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput2" label="Image" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Image" className="w-50">
         <Form.Control type="text" placeholder="Image URL" name="image" value={formInput.image} onChange={handleChange} required />
       </FloatingLabel>
 
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Add'} Manga</Button>
+      <Button type="submit" variant="secondary">{obj.firebaseKey ? 'Update' : 'Add'} Manga</Button>
     </Form>
   );
 }

@@ -35,10 +35,15 @@ export default function NavBar() {
             </li>
             <li>
               <Link passHref href="/manga/new">
-                <a className="nav-link">Add Manga</a>
+                <a className="nav-link" variant="secondary">Add Manga</a>
               </Link>
             </li>
-            <button type="button" className="btn btn-danger" onClick={signOut}>
+            <li>
+              <Link passHref href="/list/new">
+                <a className="nav-link">Add List</a>
+              </Link>
+            </li>
+            <button type="button" className="btn btn-dark btn-sm copy-btn" onClick={signOut}>
               Sign Out
             </button>
           </ul>

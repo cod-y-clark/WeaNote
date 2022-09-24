@@ -46,15 +46,15 @@ export default function ListForm({ obj }) {
       <title>List Form</title>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Add'} List</h2>
 
-      <FloatingLabel controlId="floatingInput1" label="Name" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Name" className="w-50">
         <Form.Control type="text" placeholder="List name" name="name" value={formInput.name} onChange={handleChange} required />
       </FloatingLabel>
 
-      <FloatingLabel controlId="floatingInput1" label="Description" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Description" className="w-50">
         <Form.Control type="text" placeholder="List description" name="description" value={formInput.description} onChange={handleChange} required />
       </FloatingLabel>
 
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Add'} List</Button>
+      <Button type="submit" variant="secondary">{obj.firebaseKey ? 'Update' : 'Add'} List</Button>
     </Form>
   );
 }

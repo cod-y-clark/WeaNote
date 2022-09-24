@@ -14,10 +14,10 @@ export default function Manga() {
   }, []);
 
   return (
-    <>
+    <div className="d-flex flex-wrap">
       {manga.map((volume) => (
         <MangaCard key={volume.firebaseKey} mangaObj={volume} />
       ))}
-    </>
+    </div>
   );
 }

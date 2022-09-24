@@ -21,10 +21,10 @@ export default function ListCard({ listObj, onUpdate }) {
         <p className="card-text bold">{listObj.description}</p>
 
         <Link href={`/list/edit/${listObj.firebaseKey}`} passHref>
-          <Button variant="info">Edit</Button>
+          <Button className="btn btn-secondary btn-sm copy-btn">Edit</Button>
         </Link>
 
-        <Button variant="danger" onClick={deleteThisList} className="m-2">
+        <Button onClick={deleteThisList} className="btn-sm btn-secondary">
           Delete
         </Button>
       </Card.Body>

@@ -1,22 +1,24 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { signIn } from '../utils/auth';
 
 function Signin() {
   return (
     <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
+      className="text-center d-flex flex-column align-content-center"
       style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
+        display: 'flex',
+        alignItems: 'center',
+        height: '100vh',
       }}
     >
-      <h1>Hi there!</h1>
-      <p>Click the button below to login!</p>
-      <button type="button" className="btn btn-primary btn-lg copy-btn" onClick={signIn}>
+      <h1>
+        Image Here
+      </h1>
+      <Button type="button" className="btn btn-dark btn-sm copy-btn" onClick={signIn}>
         Sign In
-      </button>
+      </Button>
     </div>
   );
 }

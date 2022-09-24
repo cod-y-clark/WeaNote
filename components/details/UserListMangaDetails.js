@@ -33,7 +33,6 @@ UserListMangaDetails.propTypes = {
     image: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
-    note: PropTypes.string,
     firebaseKey: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,

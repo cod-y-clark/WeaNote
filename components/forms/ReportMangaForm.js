@@ -44,7 +44,7 @@ export default function ReportMangaForm({ obj }) {
   return (
     <Form onSubmit={handleSubmit}>
       <FloatingLabel controlId="floatingSelect" label="">
-        <Form.Select aria-label="ReportList" name="reportListId" defaultValue="0" onChange={handleChange} className="mb-3" required>
+        <Form.Select aria-label="ReportList" name="reportListId" defaultValue="0" onChange={handleChange} required>
           <option value="">Why are you reporting this manga?</option>
           {reportLists.map((reportList) => (
             <option key={reportList.firebaseKey} value={reportList.firebaseKey} defaultValue={obj.reportListId === reportList.firebaseKey}>

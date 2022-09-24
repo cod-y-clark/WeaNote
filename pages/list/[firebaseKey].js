@@ -18,7 +18,7 @@ export default function ViewListDetails() {
   }, [firebaseKey]);
 
   return (
-    <div>
+    <div className="d-flex flex-wrap">
       {listDetails.map((volume) => (
         <UserListMangaCard key={volume.firebaseKey} mangaObj={volume} onUpdate={getAllUserListManga} />
       ))}

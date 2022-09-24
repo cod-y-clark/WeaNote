@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import { Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import AddToListForm from '../forms/AddToListForm';
 import ReportMangaForm from '../forms/ReportMangaForm';
@@ -15,12 +16,14 @@ export default function MangaDetails({ mangaObj }) {
           {mangaObj.title} by {mangaObj.author}
         </h5>
       </div>
-      <div>
-        <AddToListForm />
-      </div>
-      <div>
-        <ReportMangaForm />
-      </div>
+      <Col>
+        <div>
+          <AddToListForm />
+        </div>
+        <div>
+          <ReportMangaForm />
+        </div>
+      </Col>
     </div>
   );
 }
